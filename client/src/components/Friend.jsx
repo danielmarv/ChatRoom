@@ -22,19 +22,32 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const isFriend = friends.find((friend) => friend._id === friendId);
 
   const patchFriend = async () => {
-    const response = await fetch(
-      `https://chatroomapi-v1.onrender.com/users/${_id}/${friendId}`,
-      {
-        method: "PATCH",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
+    let friend; // Declare friend here
+  
+    try {
+      const response = await fetch(
+        `https://chatroomapi-v1.onrender.com/users/${_id}/${friendId}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
-    );
-    const data = await response.json();
-    dispatch(setFriends({ friends: data }));
+      friend = await response.json();
+  
+      dispatch(setFriends({ friends: friend }));
+    } catch (error) {
+      console.error("Error updating friend:", error.message);
+    }
   };
+  
+  
 
   return (
     <FlexBetween>
