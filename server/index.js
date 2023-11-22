@@ -47,6 +47,12 @@ app.post("/auth/register", upload.single("picture"), register);
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 /* ROUTES */
+
+// Health Check
+app.get("/", (req, res) => {
+  res.send("The API is running fine.");
+});
+
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
