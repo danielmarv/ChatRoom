@@ -33,8 +33,8 @@ COPY --from=dependencies /app /app
 COPY . .
 
 # Environment variables
-ENV MONGO_URL='mongodb+srv://joshic:123@cluster0.ejy8zqs.mongodb.net/?retryWrites=true&w=majority'
-ENV JWT_SECRET='07032947joshic85'
+ENV MONGO_URL='Change Me!!'
+ENV JWT_SECRET='Change Me!!'
 ENV PORT=3001
 
 # Build Args
