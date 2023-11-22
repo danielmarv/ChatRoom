@@ -50,7 +50,7 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 // Health Check
 app.get("/", (req, res) => {
-  res.send("The API is running fine.");
+  res.send("The Chatroom API is running fine.");
 });
 
 app.use("/auth", authRoutes);
