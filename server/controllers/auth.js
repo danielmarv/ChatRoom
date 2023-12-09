@@ -10,11 +10,11 @@ export const register = async (req, res) => {
       lastName,
       email,
       password,
-      picturePath,
       friends,
       location,
       occupation,
     } = req.body;
+    const picturePath = req.picturePath;
 
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
