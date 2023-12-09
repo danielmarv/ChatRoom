@@ -16,6 +16,8 @@ import { setLogin } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
+const { REACT_APP_API_URL } = process.env;
+
 const registerSchema = yup.object().shape({
   firstName: yup.string().required("required"),
   lastName: yup.string().required("required"),
@@ -64,7 +66,7 @@ const Form = () => {
     formData.append("picturePath", values.picture.name);
 
     const savedUserResponse = await fetch(
-      "https://chatroomapi-v1.onrender.com/auth/register",
+      `${REACT_APP_API_URL}/auth/register`,
       {
         method: "POST",
         body: formData,
@@ -79,7 +81,7 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch("https://chatroomapi-v1.onrender.com/auth/login", {
+    const loggedInResponse = await fetch(`${REACT_APP_API_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),

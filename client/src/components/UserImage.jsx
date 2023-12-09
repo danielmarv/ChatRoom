@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
 
+const { REACT_APP_API_URL } = process.env;
+
 const UserImage = ({ image, size = "60px" }) => {
   return (
     <Box width={size} height={size}>
@@ -8,7 +10,7 @@ const UserImage = ({ image, size = "60px" }) => {
         width={size}
         height={size}
         alt="user"
-        src={`https://chatroomapi-v1.onrender.com/assets/${image}`}
+        src={`${REACT_APP_API_URL}/assets/${image}`}
       />
     </Box>
   );
