@@ -38,7 +38,7 @@ const upload = multer({ storage });
 
 /* ROUTES WITH FILES */
 app.post("/auth/register", upload.single("picture"), cloudinaryController.uploadImage, register);
-app.post("/posts", verifyToken, upload.single("picture"), createPost);
+app.post("/posts", verifyToken, upload.single("picture"), cloudinaryController.uploadImage, createPost);
 
 /* ROUTES */
 
