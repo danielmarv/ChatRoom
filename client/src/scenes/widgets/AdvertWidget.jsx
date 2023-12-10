@@ -2,6 +2,8 @@ import { Typography, useTheme } from "@mui/material";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
 
+const { REACT_APP_API_URL } = process.env;
+
 const AdvertWidget = () => {
   const { palette } = useTheme();
   const dark = palette.neutral.dark;
@@ -20,7 +22,7 @@ const AdvertWidget = () => {
         width="100%"
         height="auto"
         alt="advert"
-        src="https://chatroomapi-v1.onrender.com/assets/info4.jpeg"
+        src={`${REACT_APP_API_URL}/assets/info4.jpeg`}
         style={{ borderRadius: "0.75rem", margin: "0.75rem 0" }}
       />
       <FlexBetween>

@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "state";
 
+const { REACT_APP_API_URL } = process.env;
+
 const FriendListWidget = ({ userId }) => {
   const dispatch = useDispatch();
   const { palette } = useTheme();
@@ -13,7 +15,7 @@ const FriendListWidget = ({ userId }) => {
 
   const getFriends = async () => {
     const response = await fetch(
-      `https://chatroomapi-v1.onrender.com/users/${userId}/friends`,
+      `${REACT_APP_API_URL}/users/${userId}/friends`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

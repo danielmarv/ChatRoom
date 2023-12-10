@@ -21,7 +21,7 @@ RUN npm ci --only=production
 # Stage 1: Run and serve the application
 
 # Use a thinner version of os for the final image
-FROM node:20.9.0-bullseye@sha256:88893710dcd8be69730988c171d4a88ee71f14338b59a9a23a89ff22cecd6559 AS run
+FROM node:20.9.0-alpine@sha256:d18f4d9889b217d3fab280cc52fbe1d4caa0e1d2134c6bab901a8b7393dd5f53 AS run
 
 # Use /app as our working directory
 WORKDIR /app
@@ -33,8 +33,8 @@ COPY --from=dependencies /app /app
 COPY . .
 
 # Environment variables
-ENV MONGO_URL='Change Me!!'
-ENV JWT_SECRET='Change Me!!'
+ENV MONGO_URL='mongodb+srv://joshic:123@cluster0.ejy8zqs.mongodb.net/?retryWrites=true&w=majority'
+ENV JWT_SECRET='07032947joshic85'
 ENV PORT=3001
 
 # Build Args

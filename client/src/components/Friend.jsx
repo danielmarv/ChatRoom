@@ -6,6 +6,8 @@ import { setFriends } from "state";
 import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
+const { REACT_APP_API_URL } = process.env;
+
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   
     try {
       const response = await fetch(
-        `https://chatroomapi-v1.onrender.com/users/${_id}/${friendId}`,
+        `${REACT_APP_API_URL}/${_id}/${friendId}`,
         {
           method: "PATCH",
           headers: {
