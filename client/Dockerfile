@@ -22,6 +22,9 @@ COPY --from=dependencies /app /app
 # Copy source code
 COPY . .
 
+# Environment variables
+ENV REACT_APP_API_URL='https://chatroomapi-v1.onrender.com'
+
 # Build the application
 RUN ["npm", "run", "build"]
 
