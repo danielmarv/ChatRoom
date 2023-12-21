@@ -1,7 +1,7 @@
 // controllers/messageController.js
 import Message from '../models/Message.js';
 import Conversation from '../models/Conversation.js'; // Import the Conversation model
-import getCurrentUser from '@/app/actions/getCurrentUser';
+import getUser from '../controllers/users.js'; // Import the getUser function
 
 export const message = async (req, res) => {
     try {
